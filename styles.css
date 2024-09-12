@@ -10,10 +10,19 @@ header {
     color: white;
     padding: 1rem;
     text-align: center;
+    height: 60px;
+    line-height: 20px;
 }
 
 main {
     padding: 1rem;
+}
+
+#products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card {
@@ -23,6 +32,8 @@ main {
     margin: 1rem;
     text-align: center;
     position: relative;
+    min-width: 52%;
+    max-width: 60%;
 }
 
 .product-card img {
@@ -36,9 +47,11 @@ main {
     background-color: #007bff;
     color: white;
     border: none;
+    font-size: 15px;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.5s;
 }
 
 .product-card button:hover {
@@ -95,16 +108,17 @@ form label, form input {
     margin-bottom: 0.5rem;
 }
 
-form button {
+form button, div button {
     background-color: #007bff;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
+form button:hover, div button:hover, .quantity-button:hover {
     background-color: #0056b3;
 }
 
@@ -113,4 +127,38 @@ footer {
     color: white;
     padding: 1rem;
     text-align: center;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    gap: 0px;
+}
+
+.quantity-button {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 18px;
+    margin: 0 5px;
+}
+.quantity-input {
+    -moz-appearance: textfield; 
+    appearance: textfield;
+}
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0;
 }

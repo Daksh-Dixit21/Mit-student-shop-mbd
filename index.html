@@ -24,19 +24,30 @@
             <div class="product-card" data-product-id="1">
                 <h3>Notebook</h3>
                 <img src="images/product-images/product-id-1-front.jpg" alt="Notebook">
-                <p>Classic notebook with 380 pages.</p>
+                <p>Classic notebook/register with 380 pages.</p>
                 <button class="view-details">View Details</button>
+            </div>
+            <div class="product-card">
+                <h3>More Products Coming Soon...</h3>
             </div>
         </section>
         <div id="product-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="modal-product-title"></h2>
-                <img id="modal-product-image" src="" alt="Product Image">
-                <p id="modal-product-description"></p>
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" min="1" value="1">
-                <button id="buy-now">Buy Now</button>
+                <div>
+                    <div>
+                        <img id="modal-product-image" src="" alt="Product Image">
+                    </div>
+                    <div><p id="modal-product-description"></p>
+                        <div class="quantity-container">
+                            <button id="decrease-quantity" class="quantity-button">-</button>
+                            <input type="number" id="quantity" min="1" value="1" class="quantity-input">
+                            <button id="increase-quantity" class="quantity-button">+</button>
+                        </div>
+                        <button id="buy-now">Buy Now</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="order-modal" class="modal">

@@ -9,32 +9,74 @@ document.addEventListener("DOMContentLoaded", function() {
     const productQuantityInput = document.getElementById("product-quantity");
     const closeButtons = document.querySelectorAll(".close");
     const buyNowButton = document.getElementById("buy-now");
+    const quantityInput = document.getElementById("quantity");
+    const increaseButton = document.getElementById("increase-quantity");
+    const decreaseButton = document.getElementById("decrease-quantity");
+
+    // Show product details modal
     productCards.forEach(card => {
-        card.querySelector(".view-details").addEventListener("click", function() {
-            const productId = this.parentElement.getAttribute("data-product-id");
-            const productName = this.parentElement.querySelector("h3").textContent;
-            const productImage = this.parentElement.querySelector("img").src;
-            const productDescription = this.parentElement.querySelector("p").textContent;
+        const viewDetailsButton = card.querySelector(".view-details");
+        if (viewDetailsButton) {
+            viewDetailsButton.addEventListener("click", function() {
+                const productId = card.getAttribute("data-product-id");
+                const productName = card.querySelector("h3").textContent;
+                const productImage = card.querySelector("img").src;
+                const productDescription = card.querySelector("p").textContent;
 
-            modalProductTitle.textContent = productName;
-            modalProductImage.src = productImage;
-            modalProductDescription.textContent = productDescription;
-            productIdInput.value = productId;
+                modalProductTitle.textContent = productName;
+                modalProductImage.src = productImage;
+                modalProductDescription.textContent = productDescription;
+                productIdInput.value = productId;
 
-            productModal.style.display = "block";
+                productModal.style.display = "block";
+            });
+        }
+    });
+
+    // Update quantity function
+    function updateQuantity(increment) {
+        let currentQuantity = parseInt(quantityInput.value, 10);
+        if (increment) {
+            currentQuantity += 1;
+        } else {
+            currentQuantity = Math.max(1, currentQuantity - 1);
+        }
+        quantityInput.value = currentQuantity;
+    }
+
+    // Attach event listeners for quantity buttons
+    if (increaseButton && decreaseButton) {
+        increaseButton.addEventListener("click", function() {
+            updateQuantity(true);
         });
-    });
-    buyNowButton.addEventListener("click", function() {
-        const quantity = document.getElementById("quantity").value;
-        productQuantityInput.value = quantity;
-        orderModal.style.display = "block";
-    });
+
+        decreaseButton.addEventListener("click", function() {
+            updateQuantity(false);
+        });
+    }
+
+    // Show order form modal
+    if (buyNowButton) {
+        buyNowButton.addEventListener("click", function() {
+            const quantity = quantityInput.value;
+            if (quantity && quantity > 0) {
+                productQuantityInput.value = quantity;
+                orderModal.style.display = "block";
+            } else {
+                alert("Please select a valid quantity.");
+            }
+        });
+    }
+
+    // Close modals
     closeButtons.forEach(button => {
         button.addEventListener("click", function() {
             productModal.style.display = "none";
             orderModal.style.display = "none";
         });
     });
+
+    // Close modals when clicking outside
     window.onclick = function(event) {
         if (event.target === productModal || event.target === orderModal) {
             productModal.style.display = "none";
