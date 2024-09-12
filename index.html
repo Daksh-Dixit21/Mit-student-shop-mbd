@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT Student Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>MIT STUDENT SHOP</h1>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-card" data-product-id="2">
+                <h3>A4 Paper Bundle</h3>
+                <img src="images/product-images/product-id-2-front.jpg" alt="A4 Paper Bundle">
+                <p>High-quality A4 paper bundle. 500 sheets per bundle.</p>
+                <button class="view-details">View Details</button>
+            </div>
+            <div class="product-card" data-product-id="1">
+                <h3>Notebook</h3>
+                <img src="images/product-images/product-id-1-front.jpg" alt="Notebook">
+                <p>Classic notebook with 380 pages.</p>
+                <button class="view-details">View Details</button>
+            </div>
+        </section>
+        <div id="product-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-product-title"></h2>
+                <img id="modal-product-image" src="" alt="Product Image">
+                <p id="modal-product-description"></p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+                <button id="buy-now">Buy Now</button>
+            </div>
+        </div>
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Order Form</h2>
+                <form id="order-form" method="post" action="https://formspree.io/f/xdknvglv">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required>
+
+                    <label for="department">Year:</label>
+                    <input type="text" id="department" name="Year" required>
+
+                    <label for="class">Section:</label>
+                    <input type="text" id="class" name="Section" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="Phone" required>
+
+                    <input type="hidden" id="product-id" name="product-id">
+                    <input type="hidden" id="product-quantity" name="product-quantity">
+
+                    <button type="submit">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MIT Student Shop</p>
+    </footer>
+</body>
+</html>
