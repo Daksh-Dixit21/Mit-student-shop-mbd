@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const quantityInput = document.getElementById("quantity");
     const increaseButton = document.getElementById("increase-quantity");
     const decreaseButton = document.getElementById("decrease-quantity");
+    const price = document.getElementById("modal-price");
+    const newPrice = document.getElementById("modal-price-new");
 
     // Show product details modal
     productCards.forEach(card => {
@@ -22,11 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 const productName = card.querySelector("h3").textContent;
                 const productImage = card.querySelector("img").src;
                 const productDescription = card.querySelector("p").textContent;
-
+                const productPrice = card.querySelector("h5").textContent;
+                const newProductPrice = card.querySelector("h4").textContent;
                 modalProductTitle.textContent = productName;
                 modalProductImage.src = productImage;
                 modalProductDescription.textContent = productDescription;
                 productIdInput.value = productId;
+                price.textContent= productPrice;
+                newPrice.textContent = newProductPrice;
 
                 productModal.style.display = "block";
             });

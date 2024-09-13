@@ -162,3 +162,21 @@ footer {
     -webkit-appearance: none; 
     margin: 0;
 }
+
+.or-price{
+    text-decoration:line-through;
+    color: #555;
+    font-size:18px;
+}
+
+.disct-price{
+    font-size: 21px;
+}
+
+.price{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}

@@ -19,17 +19,21 @@
                 <h3>A4 Paper Bundle</h3>
                 <img src="images/product-images/product-id-2-front.jpg" alt="A4 Paper Bundle">
                 <p>High-quality A4 paper bundle. 500 sheets per bundle.</p>
+                <span class="price"><h5 class="or-price">&#8377;270</h5><h4 class="disct-price">&#8377;220</h4></span>
                 <button class="view-details">View Details</button>
             </div>
             <div class="product-card" data-product-id="1">
                 <h3>Notebook</h3>
                 <img src="images/product-images/product-id-1-front.jpg" alt="Notebook">
                 <p>Classic notebook/register with 380 pages.</p>
+                <span class="price"><h5 class="or-price">&#8377;110</h5><h4 class="disct-price">&#8377;70</h4></span>
                 <button class="view-details">View Details</button>
             </div>
             <div class="product-card">
                 <h3>More Products Coming Soon...</h3>
             </div>
+            <div class="product-card post-note">
+    <h4>“Hello! Our mission is simple: we’re committed to offering products at affordable prices. Thank you for considering us!”</h4>            </div>
         </section>
         <div id="product-modal" class="modal">
             <div class="modal-content">
@@ -45,6 +49,7 @@
                             <input type="number" id="quantity" min="1" value="1" class="quantity-input">
                             <button id="increase-quantity" class="quantity-button">+</button>
                         </div>
+                        <span class="price"><h5 class="or-price" id="modal-price"></h5><h4 class="disct-price" id="modal-price-new"></h4></span>
                         <button id="buy-now">Buy Now</button>
                     </div>
                 </div>
@@ -54,7 +59,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Order Form</h2>
-                <form id="order-form" method="post" action="https://formspree.io/f/xdknvglv">
+                <form id="order-form" method="post" action="https://formspree.io/f/mdknvzbz">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="Name" required>
 
